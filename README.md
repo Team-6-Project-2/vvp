@@ -20,3 +20,6 @@ https://levelup.gitconnected.com/how-to-connect-a-godaddy-domain-to-a-deployed-h
 
 how to send email: https://docs.cloudmailin.com/outbound/examples/send_email_with_node_js/
 how to send emails with express: https://docs.cloudmailin.com/outbound/examples/send_email_with_node_js/#sending-mail-with-express
+
+npm install cloudmailin
+npm install express-mailer
