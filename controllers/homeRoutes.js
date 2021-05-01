@@ -79,26 +79,4 @@ router.get('/login', (req, res) => {
   res.render('login');
 });
 
-// outbound email test
-
-router.get('/email', function (req, res, next) {
-  router.mailer.send(
-    'email',
-    {
-      to: 'jason.e.jones@gmail.com',
-      subject: 'Test from express',
-      otherProperty: 'Other Property', // All additional properties are also passed to the template as local variables.
-    },
-    function (err) {
-      if (err) {
-        // handle error
-        console.log(err);
-        res.send('There was an error sending the email');
-        return;
-      }
-      res.send('Email Sent');
-    }
-  );
-});
-
 module.exports = router;
