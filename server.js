@@ -6,6 +6,7 @@ const routes = require('./controllers');
 const helpers = require('./utils/helpers');
 
 const sequelize = require('./config/connection');
+// const doingEmail = require('./config/emailConfig');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
 const app = express();
@@ -20,8 +21,8 @@ const sess = {
   resave: false,
   saveUninitialized: true,
   store: new SequelizeStore({
-    db: sequelize
-  })
+    db: sequelize,
+  }),
 };
 
 app.use(session(sess));
