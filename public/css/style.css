@@ -1,24 +1,70 @@
-header, .project:not(:last-child) {
-  border-bottom: 1px solid #ccc;
+.option-signup,
+.option-login {
+  display: none;
+}
+.temp {
+  color: white;
+  background-color: blue;
+  padding: 20px;
+  border-radius: 25px;
 }
 
-.no-button {
-  background: none;
-  border: none;
-  padding: 0;
-  cursor: pointer;
-  color: #1b89bc;
-  text-decoration: none;
-  font-size: 100%;
+@media (max-width: 992px) {
+}
+@media (max-width: 768px) {
+}
+@media (max-width: 576px) {
 }
 
-.no-button:hover {
-  color: #065b83;
-  text-decoration: underline;
+html,
+body {
+  height: 100%;
+  width: 100%;
+  /* font-family: 'Poppins', sans-serif; */
+  color: #222;
+  font-family: 'Special Elite';
+}
+.navbar {
+  padding: 0.8rem;
+}
+.navbar-nav li {
+  padding-right: 20px;
+}
+.nav-link {
+  font-size: 1.1em !important;
+}
+.parallax2 {
+  height: 40vw;
+  background-image: url('https://www.tampabay.com/resizer//hjsbTc5GVPsRo9S6mOZ7Vzy1ziA=/1600x900/smart/cloudfront-us-east-1.images.arcpublishing.com/tbt/J23GCG4JTVAAVMXYJLWQFTNELU.jpg');
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  color: white;
+  display: flex;
+  align-items: center;
 }
 
-.dollar-amount {
-  color: #056605;
-  font-weight: bold;
-  margin-left: -5px;
+.padding {
+  padding-bottom: 2rem;
+}
+.nav-signup-login {
+  margin-top: 0px !important;
+  color: white !important;
+}
+h5.background {
+  padding: 2px;
+  color: black;
+}
+.worldPics {
+  height: 160px;
+  width: 185px;
+  border: solid 10pxrgb (68, 89, 184);
+  border-radius: 50%;
+  transition: transform 0.2s; /* Animation */
+  margin: 10px;
+}
+/* GIPHY */
+.giphy-embed {
+  border: solid rgb(68, 89, 184) 15px;
 }

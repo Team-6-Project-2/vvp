@@ -1,42 +1,63 @@
-<div class="row">
-  <div class="col-md-6">
-    <h2>Login</h2>
+<div class="container-fluid">
+  <div class="container">
+    <h2 class="text-center" id="title">Login</h2>
+    <hr>
+    <div class="row">
+      <div class="col-md-6">
+        <h2>Login</h2>
+        <form class="form login-form">
+          <div class="form-group">
+            <label for="email-login"></label>
+            <input type="email" name="username" id="email-login" class="form-control input-lg" placeholder="Username">
+          </div>
+          <div class="form-group">
+            <label for="password-login"></label>
+            <input type="password" name="password" id="password-login" class="form-control input-lg"
+              placeholder="Password">
+          </div>
+          <div class="form-group">
+            <button class="btn btn-primary" type="submit">Login</button>
+          </div>
+        </form>
+      </div>
 
-    <form class="form login-form">
-      <div class="form-group">
-        <label for="email-login">email:</label>
-        <input class="form-input" type="text" id="email-login" />
-      </div>
-      <div class="form-group">
-        <label for="password-login">password:</label>
-        <input class="form-input" type="password" id="password-login" />
-      </div>
-      <div class="form-group">
-        <button class="btn btn-primary" type="submit">login</button>
-      </div>
-    </form>
-  </div>
-  <div class="col-md-6">
-    <h2>Signup</h2>
+      <div class="col-md-6">
+        <h2>Signup</h2>
 
-    <form class="form signup-form">
-      <div class="form-group">
-        <label for="name-signup">name:</label>
-        <input class="form-input" type="text" id="name-signup" />
-      </div>
-      <div class="form-group">
-        <label for="email-signup">email:</label>
-        <input class="form-input" type="text" id="email-signup" />
-      </div>
-      <div class="form-group">
-        <label for="password-signup">password:</label>
-        <input class="form-input" type="password" id="password-signup" />
-      </div>
-      <div class="form-group">
-        <button class="btn btn-primary" type="submit">signup</button>
-      </div>
-    </form>
-  </div>
-</div>
+        <form class="form signup-form">
+          <div class="form-group">
+            <label for="name-signup"></label>
+            <input type="text" name="username" id="username-signup" class="form-control input-lg"
+              placeholder="Username">
+          </div>
 
-<script src="./js/login.js"></script>
+          <div class="form-group">
+            <label for="email-signup"></label>
+            <input type="email" name="email" id="email-signup" class="form-control input-lg"
+              placeholder="Email Address">
+          </div>
+
+          <div class="form-group">
+            <label for="password-signup"></label>
+            <input type="password" name="password" id="password-signup" class="form-control input-lg"
+              placeholder="Password">
+          </div>
+
+          <div class="form-check">
+            <label class="form-check-label">
+              <input type="checkbox" class="form-check-input">
+              By Clicking register you're agree to our policy & terms
+            </label>
+          </div>
+
+          <div class="form-group">
+            <label for="submit-signup"></label>
+            <button class="btn btn-primary" type="submit">Signup</button>
+          </div>
+
+        </form>
+      </div>
+    </div>
+
+    <script src="./js/login.js"></script>
+    <link rel="stylesheet" href="/css/stylelogin.css">
