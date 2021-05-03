@@ -3,11 +3,14 @@
 Viktoriias Vax Password Group Project #2 Team 6
 
 1. purchase custom domain name
+2. setup office365 email with 1 vanity username (viktoriia)
+3. upgrade heroku instance to hobby instance so we can run certs against an app that's deployed to a custom domain name
+   https://app.sendgrid.com/settings/api_keys
+   heroku run bash --app=techblog-hw14
 
-1. setup viktoriia email address @ office 365
-1. https://devcenter.heroku.com/articles/automated-certificate-management#view-your-certificate-status
+4. https://devcenter.heroku.com/articles/automated-certificate-management#view-your-certificate-status
    3.viktoriiavcaxxpassport.com domain
-1. setup domain with heroku
+5. setup domain with heroku
    heroku apps --team=codeteam6
 
 $ heroku certs:auto --app=viktoriiasvaxxpassport

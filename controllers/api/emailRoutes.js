@@ -8,7 +8,7 @@ const email = require('../../utils/email');
 router.post('/', async (req, res, next) => {
   try {
     const mail = await email(
-      'jason.e.jones@gmail.com',
+      `${process.env.SENDGIRD_TEST_OUTBOUND_MAILBOX}`,
       'my first email big sexy',
       'yeah boi i said sexy'
     );
