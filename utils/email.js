@@ -7,7 +7,6 @@ const email = async (emailTo, emailSubject, emailText) => {
       api_key: process.env.SENDGIRD_API_KEY,
     },
   };
-
   let transporter = nodemailer.createTransport(sgTransport(sgAuth));
 
   let mailOptions = {
@@ -24,5 +23,4 @@ const email = async (emailTo, emailSubject, emailText) => {
     return e;
   }
 };
-
 module.exports = email;
