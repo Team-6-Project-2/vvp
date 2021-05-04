@@ -10,13 +10,18 @@ class User extends Model {
 
 User.init(
   {
-    id: {
+    vvp_number: {
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
+      unique: true,
       autoIncrement: true,
     },
-    name: {
+    first_name: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    last_name: {
       type: DataTypes.STRING,
       allowNull: false,
     },
@@ -31,9 +36,6 @@ User.init(
     password: {
       type: DataTypes.STRING,
       allowNull: false,
-      validate: {
-        len: [8],
-      },
     },
   },
   {
