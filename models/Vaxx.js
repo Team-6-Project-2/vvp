@@ -1,9 +1,9 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Project extends Model { }
+class Vaxx extends Model { }
 
-Project.init(
+Vaxx.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -11,7 +11,7 @@ Project.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    name: {
+    vaxx_name: {
       type: DataTypes.STRING,
       allowNull: false,
     },
@@ -23,15 +23,12 @@ Project.init(
       allowNull: false,
       defaultValue: DataTypes.NOW,
     },
-    needed_funding: {
-      type: DataTypes.FLOAT,
-      allowNull: false,
-    },
     user_id: {
       type: DataTypes.INTEGER,
+      foreignKey: true,
       references: {
         model: 'user',
-        key: 'id',
+        key: 'vvp_number',
       },
     },
   },
@@ -40,8 +37,8 @@ Project.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'project',
+    modelName: 'vaxx',
   }
 );
 
-module.exports = Project;
+module.exports = Vaxx;
