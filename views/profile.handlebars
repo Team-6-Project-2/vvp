@@ -5,13 +5,14 @@
     <form>
       <div class="form-row">
         <div class="col-md-4 mb-3">
-          <label for="validationDefault01">First name</label>
-          <input type="text" class="form-control" id="validationDefault01" {{first_name}} placeholder="First name"
-            value="" required>
+          <label for="validationDefault01">First name </label>
+          <input type="text" class="form-control" id="validationDefault01" placeholder="First name" value={{first_name}}
+            required>
         </div>
+
         <div class="col-md-4 mb-3">
           <label for="validationDefault02">Last name</label>
-          <input type="text" class="form-control" id="validationDefault02" {{last_name}}placeholder="Last name" value=""
+          <input type="text" class="form-control" id="validationDefault02" placeholder="Last name" value={{last_name}}
             required>
         </div>
         <div class="col-md-4 mb-3">
@@ -20,29 +21,22 @@
             <div class="input-group-prepend">
               <span class="input-group-text" id="inputGroupPrepend2">@</span>
             </div>
-            <input type="text" class="form-control" id="validationDefaultUsername" {{email}}
-              placeholder="Enter your email" aria-describedby="inputGroupPrepend2" required>
+            <input type="text" class="form-control" id="validationDefaultUsername" placeholder="Enter your email"
+              value={{email}} aria-describedby="inputGroupPrepend2" required>
           </div>
         </div>
       </div>
+
       <div class="col-md-3 mb-3">
         <label for="validationDefault05">Zip</label>
-        <input type="text" class="form-control" id="validationDefault05" {{zipcode}} placeholder="Zip" required>
+        <input type="text" class="form-control" id="validationDefault05" placeholder="Zip" value={{zipcode}} required>
       </div>
       <div class="col-md-3 mb-3">
         <label for="validationDefault05">VVP number</label>
-        <input type="text" class="form-control" id="validationDefault05" placeholder="" required>
+        <input type="text" class="form-control" id="validationDefault05" placeholder="vvp" value={{vvp_number}}
+          required>
       </div>
   </div>
-  <div class="form-group">
-    <div class="form-check">
-      <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
-      <label class="form-check-label" for="invalidCheck2">
-        Agree to terms and conditions
-      </label>
-    </div>
-  </div>
-  <button class="btn btn-primary" type="submit">Submit</button>
-  </form>
+
   {{!--
   <link rel="stylesheet" href="/css/style.css"> --}}
