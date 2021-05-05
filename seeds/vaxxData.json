@@ -1,0 +1,38 @@
+[
+  {
+    "vaxx_name":"Pfizer BioNTech 1",
+    "description":"Pfizer Covid 1 of 2",
+    "date_created": "2021-03-24 12:01:00",
+    "user_id": 100000
+  },
+  {
+    "vaxx_name":"Pfizer BioNTech 2",
+    "description":"Pfizer Covid 2 of 2",
+    "date_created": "2021-04-15 12:01:00",
+    "user_id": 100000
+  },
+  {
+    "vaxx_name":"Pfizer BioNTech 1",
+    "description":"Pfizer Covid 1 of 2",
+    "date_created": "2021-03-25 12:01:00",
+    "user_id": 100001
+  },
+  {
+    "vaxx_name":"Pfizer BioNTech 2",
+    "description":"Pfizer Covid 2 of 2",
+    "date_created": "2021-04-16 12:01:00",
+    "user_id": 100001
+  },
+  {
+    "vaxx_name":"Pfizer BioNTech 1",
+    "description":"Pfizer Covid 1 of 2",
+    "date_created": "2021-03-26 12:01:00",
+    "user_id": 100002
+  },
+  {
+    "vaxx_name":"Pfizer BioNTech 2",
+    "description":"Pfizer Covid 2 of 2",
+    "date_created": "2021-04-17 12:01:00",
+    "user_id": 100002
+  }
+]
