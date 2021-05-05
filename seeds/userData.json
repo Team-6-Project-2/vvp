@@ -2,24 +2,28 @@
   {
     "first_name": "Lillie",
     "last_name": "Hicks",
+    "zipcode": 29730,
     "email": "codingcamptester+lillie@gmail.com",
     "password": "password12345"
   },
   {
     "first_name": "Arianna",
     "last_name": "Smith",
+    "zipcode": 29730,
     "email": "codingcamptester+arianna@gmail.com",
     "password": "password12345"
   },
   {
     "first_name": "Lillie",
     "last_name": "Hicks",
+    "zipcode": 29730,
     "email": "codingcamptester+lillie@gmail.com",
     "password": "password12345"
   },
   {
     "first_name": "Sal",
     "last_name": "Later",
+    "zipcode": 28210,
     "email": "sal@gmail.com",
     "password": "password12345"
   }
