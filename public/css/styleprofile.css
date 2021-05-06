@@ -1,0 +1,14 @@
+body {
+  background-image: url('https://thumbor.forbes.com/thumbor/fit-in/1200x0/filters%3Aformat%28jpg%29/https%3A%2F%2Fspecials-images.forbesimg.com%2Fimageserve%2F5fcfa56364a094410dfc3d0b%2F0x0.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.container {
+  padding: 50px;
+  margin-top: auto;
+  margin-bottom: auto;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.5) !important;
+}

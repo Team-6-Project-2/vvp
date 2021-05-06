@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const { Vaxx, User } = require('../models');
 const withAuth = require('../utils/auth');
+const { format, parseISO } = require('date-fns');
 
 router.get('/', async (req, res) => {
   try {
@@ -61,6 +62,14 @@ router.get('/profile', withAuth, async (req, res) => {
     });
 
     const user = userData.get({ plain: true });
+    // console.log(user);
+    user.vaxxes = user.vaxxes.map(val => {
+      return {
+        vaxx_name: val.vaxx_name,
+        description: val.description,
+        date_created: format(val.date_created, "yyyy-MM-dd")
+      }
+    });
 
     res.render('profile', {
       ...user,
