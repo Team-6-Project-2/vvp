@@ -1,7 +1,7 @@
 {
-  "name": "crowd-funding",
+  "name": "viktoriiasvaxxpassport",
   "version": "1.0.0",
-  "description": "Homework #14: Model-View-Controller (MVC): Tech Blog",
+  "description": "Code Team 6 Project 2: Viktoriias Vaxx Passport",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -9,7 +9,7 @@
     "seed": "node seeds/seed.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "victoria.pushenko@yahoo.com, thepodz303@gmail.com, jason.e.jones@gmail.com",
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.0.0",
@@ -32,10 +32,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jonesjsc/14-MVC-Tech-Blog.git"
+    "url": "git+https://github.com/Team-6-Project-2/vvp.git"
   },
   "bugs": {
-    "url": "https://github.com/jonesjsc/14-MVC-Tech-Blog/issues"
+    "url": "https://github.com/Team-6-Project-2/vvp/issues"
   },
-  "homepage": "https://github.com/jonesjsc/14-MVC-Tech-Blog#readme"
+  "homepage": "https://github.com/Team-6-Project-2/vvp#readme"
 }
