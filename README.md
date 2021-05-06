@@ -1,11 +1,6 @@
 # vvp
 
 Viktoriias Vax Password Group Project #2 Team 6
-<<<<<<< Updated upstream
-=======
-<<<<<<< Updated upstream
-=======
->>>>>>> Stashed changes
 
 1. purchase custom domain name
 2. setup office365 email with 1 vanity username (viktoriia)
@@ -31,8 +26,6 @@ how to send emails with express: https://docs.cloudmailin.com/outbound/examples/
 
 npm install cloudmailin
 npm install express-mailer
-<<<<<<< Updated upstream
-=======
 
 ---
 
@@ -43,5 +36,17 @@ GMAIL has a feature called "task-specific email addresses". In short, if your em
 However
 
 When validation is unique is enabled in MYSQL on EMAIL addresses - MYSQL (or Sequalize?) is resolving username+onething@gmail.com and username+anotherthing@gmail.com and NOT UNIQUE. Which makes sense on one hand, because we know these emails will land in the same inbox. But on the otherhand, the strings are obviously very unique.
->>>>>>> Stashed changes
->>>>>>> Stashed changes
+
+Validating DOMAIN NAME at SENDGIRD when GODADDY is DNS - instructions are incorrect and time was spent untangling that
+https://github.com/sendgrid/docs/issues/6530
+
+# API Routes
+
+| Method | Route            | Description                                                                                                                                                                                                                                                                   |
+| :----- | :--------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| POST   | /api/user/login  | Logs user in - expects JSON object formatted: <br>`{`<br>`"email": "`<em>`EMAIL`</em>`",`<br>`"password": "`<em>`PASSWORD`</em>`"`<br>`}`                                                                                                                                     |
+| POST   | /api/user/logout | Logs user out - expects JSON object formatted: <br>`{`<br>`"email": "`<em>`EMAIL`</em>`"`<br>`}`                                                                                                                                                                              |
+| POST   | /api/email       | Sends email out - expects JSON object formatted: <br>`{`<br>`"emailTo": "`<em>`EMAIL RECIPIENT`</em>`",`<br>`"emailSubject": "`<em>`EMAIL SUBJECT`</em>`",`<br>`"emailBody": `<em>`"EMAIL BODY`</em>`"`<br>`}`                                                                |
+| POST   | /api/users       | Creates a user - expects JSON object formatted: <br>`{`<br>`"first_name": "`<em>`FIRST NAME`</em>`",`<br>`"last_name": "`<em>`LAST NAME`</em>`",`<br>`"zipcode": "`<em>`ZIPCODE`</em>`",`<br>`"email": "`<em>`EMAIL`</em>`",`<br>`"password": "`<em>`PASSWORD`</em>`"`<br>`}` |
+| POST   | /api/vaxxs       | Adds a vaxx to a user - expects JSON object formatted: <br>`{`<br>`"vaxx_name": "`<em>`VAXX NAME`</em>`",`<br>`"description": "`<em>`DESCRIPTION`</em>`",`<br>`"date_created": "`<em>`DATE`</em>`",`<br>`"user_id": "`<em>`user_id`</em>`"`<br>`}`                            |
+| PUT    | /api/vaxxs/:id   | Updated a vaxx given a vaxx id - expects JSON object formatted: <br>`{`<br>`"vaxx_name": "`<em>`VAXX NAME`</em>`",`<br>`"description": "`<em>`DESCRIPTION`</em>`",`<br>`"date_created": "`<em>`DATE`</em>`"`<br>`}`                                                           |

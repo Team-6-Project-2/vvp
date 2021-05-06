@@ -63,12 +63,12 @@ router.get('/profile', withAuth, async (req, res) => {
 
     const user = userData.get({ plain: true });
     // console.log(user);
-    user.vaxxes = user.vaxxes.map(val => {
+    user.vaxxes = user.vaxxes.map((val) => {
       return {
         vaxx_name: val.vaxx_name,
         description: val.description,
-        date_created: format(val.date_created, "yyyy-MM-dd")
-      }
+        date_created: format(val.date_created, 'yyyy-MM-dd'),
+      };
     });
 
     res.render('profile', {
@@ -81,6 +81,21 @@ router.get('/profile', withAuth, async (req, res) => {
 });
 
 router.get('/login', (req, res) => {
+  // If the user is already logged in, redirect the request to another route
+  if (req.session.logged_in) {
+    res.redirect('/profile');
+    return;
+  }
+
+  res.render('login');
+});
+
+// during testing the api if the user was not logged in and attempted a PUT to
+// update vaxx given a user, that would be redirected AS A PUT to /login.  So we
+// are capturing that here to render the login page.  I mean, the should never
+// ever see this except in testing.
+
+router.put('/login', (req, res) => {
   // If the user is already logged in, redirect the request to another route
   if (req.session.logged_in) {
     res.redirect('/profile');
