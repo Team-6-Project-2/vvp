@@ -50,3 +50,4 @@ https://github.com/sendgrid/docs/issues/6530
 | POST   | /api/users       | Creates a user - expects JSON object formatted: <br>`{`<br>`"first_name": "`<em>`FIRST NAME`</em>`",`<br>`"last_name": "`<em>`LAST NAME`</em>`",`<br>`"zipcode": "`<em>`ZIPCODE`</em>`",`<br>`"email": "`<em>`EMAIL`</em>`",`<br>`"password": "`<em>`PASSWORD`</em>`"`<br>`}` |
 | POST   | /api/vaxxs       | Adds a vaxx to a user - expects JSON object formatted: <br>`{`<br>`"vaxx_name": "`<em>`VAXX NAME`</em>`",`<br>`"description": "`<em>`DESCRIPTION`</em>`",`<br>`"date_created": "`<em>`DATE`</em>`",`<br>`"user_id": "`<em>`user_id`</em>`"`<br>`}`                            |
 | PUT    | /api/vaxxs/:id   | Updated a vaxx given a vaxx id - expects JSON object formatted: <br>`{`<br>`"vaxx_name": "`<em>`VAXX NAME`</em>`",`<br>`"description": "`<em>`DESCRIPTION`</em>`",`<br>`"date_created": "`<em>`DATE`</em>`"`<br>`}`                                                           |
+
