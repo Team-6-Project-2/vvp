@@ -1,3 +1,101 @@
+{{!-- {{log vaxxes}} --}}
+
 <div class="container-fluid">
   <div class="container">
-    <h2 class="text-center" id="title">Welcome, {{name}}!</h2>
+    <h2 class="text-center" id="title">Welcome, {{first_name}}!</h2>
+    <hr>
+    <form>
+      <div class="form-row">
+        <div class="col-md-2 mb-3">
+          <label for="validationDefault01">First name </label>
+          <input type="text" class="form-control" id="validationDefault01" placeholder="First name" value={{first_name}}
+            required>
+        </div>
+
+        <div class="col-md-2 mb-3">
+          <label for="validationDefault02">Last name</label>
+          <input type="text" class="form-control" id="validationDefault02" placeholder="Last name" value={{last_name}}
+            required>
+        </div>
+
+        <div class="col-md-3 mb-3">
+          <label for="validationDefaultUsername">Email</label>
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="inputGroupPrepend2">@</span>
+            </div>
+            <input type="text" class="form-control" id="validationDefaultUsername" placeholder="Enter your email"
+              value={{email}} aria-describedby="inputGroupPrepend2" required>
+          </div>
+        </div>
+        <div class="col-md-2 mb-3">
+          <label for="validationDefault02">Zip</label>
+          <input type="text" class="form-control" id="validationDefault02" placeholder="zip" value={{zipcode}} required>
+        </div>
+        <div class="col-md-2 mb-3">
+          <label for="validationDefault02">VVP number</label>
+          <input type="text" class="form-control" id="validationDefault02" placeholder="vvp" value={{vvp_number}}
+            required>
+        </div>
+
+      </div>
+    </form>
+    <form class="needs-validation" novalidate>
+      <div class="form-row">
+        <div class="col-md-4 mb-3">
+          <label for="validationCustom01">Name</label>
+          <input type="text" class="form-control" id="validationCustom01" placeholder="please enter" value="" required>
+        </div>
+        <div class="col-md-4 mb-3">
+          <label for="validationCustom02">Type of Vaccine</label>
+          <select class="custom-select" id="inputGroupSelect02" placeholder="vaxx" value="" required>
+            <option selected>Choose...</option>
+            <option value="1">Pfizer</option>
+            <option value="2">Moderna</option>
+            <option value="3">J&J</option>
+          </select>
+        </div>
+        <div class="col-md-4 mb-3">
+          <label for="add-vax-date">Date</label>
+          <input class="form-control" type="date" id="add-vax-date">
+        </div>
+      </div>
+    </form>
+    {{#each vaxxes}}
+    <form class="needs-validation" novalidate>
+      <div class="form-row">
+        <div class="col-md-4 mb-3">
+          <label for="validationCustom01">Name</label>
+          <input type="text" class="form-control" id="validationCustom01" placeholder="please enter"
+            value="{{description}}" required>
+        </div>
+        <div class="col-md-4 mb-3">
+          <label for="validationCustom02">Type of Vaccine</label>
+          <select class="custom-select" id="inputGroupSelect02" placeholder="vaxx" value="{{vaxx_name}}" required>
+            <option value="Pfizer">Pfizer</option>
+            <option value="Moderna">Moderna</option>
+            <option value="J&J">J&J</option>
+          </select>
+        </div>
+        <div class="col-md-4 mb-3">
+          <label for="add-vax-date">Date</label>
+          <input class="form-control" type="date" value="{{date_created}}" id="add-vax-date">
+        </div>
+      </div>
+    </form>
+    {{/each}}
+    {{!-- <div class="form-row">
+      <button class="btn btn-primary" type="edit" data-toggle="collapse" data-target="#collapseExample"
+        aria-expanded="false" aria-controls="collapseExample">
+        Add Vaxx 💉
+      </button>
+
+      <div class="collapse" id="collapseExample">
+        <div class="container-fluid">
+          <div class="container">
+          </div>
+        </div>
+      </div>
+    </div> --}}
+  </div>
+  <link rel="stylesheet" href="/css/styleprofile.css">

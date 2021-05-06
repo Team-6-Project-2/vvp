@@ -10,20 +10,29 @@ class User extends Model {
 
 User.init(
   {
-    id: {
+    vvp_number: {
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
+      unique: true,
       autoIncrement: true,
     },
-    name: {
+    first_name: {
       type: DataTypes.STRING,
+      allowNull: false,
+    },
+    last_name: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    zipcode: {
+      type: DataTypes.INTEGER,
       allowNull: false,
     },
     email: {
       type: DataTypes.STRING,
       allowNull: false,
-      unique: true,
+      unique: false,
       validate: {
         isEmail: true,
       },
@@ -31,9 +40,6 @@ User.init(
     password: {
       type: DataTypes.STRING,
       allowNull: false,
-      validate: {
-        len: [8],
-      },
     },
   },
   {
@@ -43,7 +49,10 @@ User.init(
         return newUserData;
       },
       beforeUpdate: async (updatedUserData) => {
-        updatedUserData.password = await bcrypt.hash(updatedUserData.password, 10);
+        updatedUserData.password = await bcrypt.hash(
+          updatedUserData.password,
+          10
+        );
         return updatedUserData;
       },
     },

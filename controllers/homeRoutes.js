@@ -1,49 +1,49 @@
 const router = require('express').Router();
-const { Project, User } = require('../models');
+const { Vaxx, User } = require('../models');
 const withAuth = require('../utils/auth');
+const { format, parseISO } = require('date-fns');
 
 router.get('/', async (req, res) => {
   try {
-    // Get all projects and JOIN with user data
-    const projectData = await Project.findAll({
+    // Get all Vaxxs and JOIN with user data
+    const vaxxData = await Vaxx.findAll({
       include: [
         {
           model: User,
-          attributes: ['name'],
+          attributes: ['first_name', 'last_name'],
         },
       ],
     });
 
     // Serialize data so the template can read it
-    const projects = projectData.map((project) => project.get({ plain: true }));
+    const vaxxs = vaxxData.map((vaxx) => vaxx.get({ plain: true }));
 
     // Pass serialized data and session flag into template
     res.render('homepage', {
-      projects,
-      
-      logged_in: req.session.logged_in,
+      vaxxs,
 
+      logged_in: req.session.logged_in,
     });
   } catch (err) {
     res.status(500).json(err);
   }
 });
 
-router.get('/project/:id', async (req, res) => {
+router.get('/vaxx/:id', async (req, res) => {
   try {
-    const projectData = await Project.findByPk(req.params.id, {
+    const vaxxData = await Vaxx.findByPk(req.params.id, {
       include: [
         {
           model: User,
-          attributes: ['name'],
+          attributes: ['first_name', 'last_name'],
         },
       ],
     });
 
-    const project = projectData.get({ plain: true });
+    const vaxx = vaxxData.get({ plain: true });
 
-    res.render('project', {
-      ...project,
+    res.render('vaxx', {
+      ...vaxx,
       logged_in: req.session.logged_in,
     });
   } catch (err) {
@@ -55,12 +55,21 @@ router.get('/project/:id', async (req, res) => {
 router.get('/profile', withAuth, async (req, res) => {
   try {
     // Find the logged in user based on the session ID
+    console.log(req.session.user_id);
     const userData = await User.findByPk(req.session.user_id, {
       attributes: { exclude: ['password'] },
-      include: [{ model: Project }],
+      include: [{ model: Vaxx }],
     });
 
     const user = userData.get({ plain: true });
+    // console.log(user);
+    user.vaxxes = user.vaxxes.map(val => {
+      return {
+        vaxx_name: val.vaxx_name,
+        description: val.description,
+        date_created: format(val.date_created, "yyyy-MM-dd")
+      }
+    });
 
     res.render('profile', {
       ...user,
