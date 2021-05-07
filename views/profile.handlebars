@@ -42,11 +42,11 @@
     </form>
     <form class="needs-validation" novalidate>
       <div class="form-row">
-        <div class="col-md-4 mb-3">
+        <div class="col-md-3 mb-3">
           <label for="validationCustom01">Name</label>
           <input type="text" class="form-control" id="validationCustom01" placeholder="please enter" value="" required>
         </div>
-        <div class="col-md-4 mb-3">
+        <div class="col-md-3 mb-3">
           <label for="validationCustom02">Type of Vaccine</label>
           <select class="custom-select" id="inputGroupSelect02" placeholder="vaxx" value="" required>
             <option selected>Choose...</option>
@@ -55,11 +55,13 @@
             <option value="3">J&J</option>
           </select>
         </div>
-        <div class="col-md-4 mb-3">
+        <div class="col-md-3 mb-3">
           <label for="add-vax-date">Date</label>
           <input class="form-control" type="date" id="add-vax-date">
         </div>
-      </div>
+        <button type="button" class="btn btn-primary btn-xs mb-3">
+          Edit
+        </button>
     </form>
     {{#each vaxxes}}
     <form class="needs-validation" novalidate>
@@ -80,6 +82,9 @@
         <div class="col-md-4 mb-3">
           <label for="add-vax-date">Date</label>
           <input class="form-control" type="date" value="{{date_created}}" id="add-vax-date">
+        </div>
+        <div class="form-group">
+          <button class="btn btn-primary" type="edit">Edit</button>
         </div>
       </div>
     </form>
