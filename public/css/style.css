@@ -72,3 +72,11 @@ h5.background {
 .no-bullets {
   list-style: none;
 }
+
+#about-text {
+  font-size: larger;
+  
+}
+#about-pic {
+  background-image: url(./assets/covid.jpeg);
+}
