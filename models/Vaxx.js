@@ -1,7 +1,8 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
+const { format } = require('date-fns');
 
-class Vaxx extends Model { }
+class Vaxx extends Model {}
 
 Vaxx.init(
   {
@@ -22,6 +23,11 @@ Vaxx.init(
       type: DataTypes.DATE,
       allowNull: false,
       defaultValue: DataTypes.NOW,
+      // get() {
+      //   const date = this.getDataValue(date_created);
+      //   // return format(date, 'yyyy-MM-dd');
+      //   return '2020-05-07';
+      // },
     },
     user_id: {
       type: DataTypes.INTEGER,
