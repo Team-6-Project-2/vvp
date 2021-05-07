@@ -50,7 +50,7 @@ const signupFormHandler = async (event) => {
 
       Your can share this link to anyone that needs to verify your Vaccination Status:
 
-      https://www.viktoriiasvaxxpassport.com/passport:${resData.vvp_number}
+      https://www.viktoriiasvaxxpassport.com/passport/${resData.vvp_number}
 
       `;
 

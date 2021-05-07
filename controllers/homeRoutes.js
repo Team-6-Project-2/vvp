@@ -2,7 +2,7 @@ const router = require('express').Router();
 const { Vaxx, User } = require('../models');
 const withAuth = require('../utils/auth');
 const { format, parseISO } = require('date-fns');
-
+const makeItAnon = require('../utils/makeItAnon');
 router.get('/', async (req, res) => {
   try {
     // Get all Vaxxs and JOIN with user data
@@ -74,6 +74,38 @@ router.get('/profile', withAuth, async (req, res) => {
     res.render('profile', {
       ...user,
       logged_in: true,
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.get('/passport/:id', async (req, res) => {
+  try {
+    const userData = await User.findOne({
+      attributes: { exclude: ['password', 'zipcode', 'email'] },
+      where: { vvp_number: req.params.id },
+      include: [
+        {
+          model: Vaxx,
+          attributes: ['id', 'vaxx_name', 'description', 'date_created'],
+        },
+      ],
+    });
+
+    if (!userData) {
+      // instead of this we need to res.render a 404 HTML page
+      res.status(404).json({ message: `No such user id ${req.params.id}` });
+      return;
+    }
+    const user = userData.get({ plain: true });
+
+    user.first_name = makeItAnon(user.first_name);
+    user.last_name = makeItAnon(user.last_name);
+    res.render('displayPassport', {
+      ...user,
+      logged_in: true,
+      layout: 'plain.handlebars',
     });
   } catch (err) {
     res.status(500).json(err);
