@@ -12,7 +12,7 @@ const loginFormHandler = async (event) => {
       body: JSON.stringify({ email, password }),
       headers: { 'Content-Type': 'application/json' },
     });
-    console.log(response)
+    console.log(response);
     if (response.ok) {
       // If successful, redirect the browser to the profile page
       document.location.replace('/profile');
@@ -41,6 +41,21 @@ const signupFormHandler = async (event) => {
     });
 
     if (response.ok) {
+      const resData = await response.json(); // need to extract vvp_number
+
+      const emailBody = `
+      Welcome ${first_name} ${last_name} to Viktoriia's Vaccination Passport!
+
+      Your Viktoriia Vaccination Passport (VVP) ID is ${resData.vvp_number}
+
+      Your can share this link to anyone that needs to verify your Vaccination Status:
+
+      https://www.viktoriiasvaxxpassport.com/passport/${resData.vvp_number}
+
+      `;
+
+      welcomeEmailHandler(email, emailBody);
+
       document.location.replace('/profile');
     } else {
       alert(response.statusText);

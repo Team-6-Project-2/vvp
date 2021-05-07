@@ -1,5 +1,73 @@
 const router = require('express').Router();
-const { User } = require('../../models');
+const withAuth = require('../../utils/auth');
+const makeItAnon = require('../../utils/makeItAnon');
+const { User, Vaxx } = require('../../models');
+
+//
+// we should create admin level access to where only admins
+// can run this.  This would be best implemented as an additional
+// model of admins so as to not disrupt existing config
+// so we should check if an ADMIN is authenticated before allowing this
+// to run.
+//
+
+router.get('/', async (req, res) => {
+  try {
+    if (!req.session.logged_in) {
+      throw res.status(401).json('Unauthorized');
+    }
+    const userData = await User.findAll({
+      attributes: { exclude: ['password'] },
+    });
+    res.status(200).json(userData);
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
+
+router.get('/:id', async (req, res) => {
+  try {
+    if (!req.session.logged_in) {
+      const userData = await User.findOne({
+        attributes: { exclude: ['password', 'zipcode', 'email'] },
+        where: { vvp_number: req.params.id },
+        include: [
+          {
+            model: Vaxx,
+            attributes: ['id', 'vaxx_name', 'description', 'date_created'],
+          },
+        ],
+      });
+      if (!userData) {
+        res.status(404).json({ message: `No such user id ${req.params.id}` });
+        return;
+      }
+      userData.first_name = makeItAnon(userData.first_name);
+      userData.last_name = makeItAnon(userData.last_name);
+      return res.status(200).json(userData);
+    }
+
+    const userData = await User.findOne({
+      attributes: { exclude: ['password'] },
+      where: { vvp_number: req.session.user_id },
+      include: [
+        {
+          model: Vaxx,
+          attributes: ['id', 'vaxx_name', 'description', 'date_created'],
+        },
+      ],
+    });
+
+    if (!userData) {
+      res.status(404).json({ message: `No such user id ${req.params.id}` });
+      return;
+    }
+
+    return res.status(200).json(userData);
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
 
 router.post('/', async (req, res) => {
   try {

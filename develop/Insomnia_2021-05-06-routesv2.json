@@ -1,0 +1,276 @@
+{
+    "_type": "export",
+    "__export_format": 4,
+    "__export_date": "2021-05-06T18:48:56.701Z",
+    "__export_source": "insomnia.desktop.app:v2021.3.0",
+    "resources": [
+        {
+            "_id": "req_67bb82b587224bec8e6e294b51e9d171",
+            "parentId": "wrk_ea5c4ef8176748d9a9168caa000e4da1",
+            "modified": 1620324576383,
+            "created": 1620323488156,
+            "url": "localhost:3001/api/users/login",
+            "name": "Login User",
+            "description": "\n{  \n     \"email\": \"sal@gmail.com\",  \n     \"password\": \"password12345\"  \n}\n\nA successful login will return something looking like\n\n{  \n  \"user\": {  \n    \"vvp_number\": 100002,  \n    \"first_name\": \"Sal\",  \n    \"last_name\": \"Later\",  \n    \"zipcode\": 28210,  \n    \"email\": \"sal@gmail.com\",  \n    \"password\": \"$2b$10$JYvDCG/QboZuoS3K0jW6NuntODiPxSV/ObHvkpg25z2EmgDbV9Oae\"  \n  },  \n  \"message\": \"You are now logged in!\"  \n}  \n \n \nSuper important we get the hashed passwsord back so that can be stored in the database.",
+            "method": "POST",
+            "body": {
+                "mimeType": "application/json",
+                "text": "{\n\"email\": \"sal@gmail.com\",\n\"password\": \"password12345\"\n}"
+            },
+            "parameters": [],
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json",
+                    "id": "pair_3b4ac221d2aa4b62bfe4ecfbfed2b377"
+                }
+            ],
+            "authentication": {},
+            "metaSortKey": -1620323528148,
+            "isPrivate": false,
+            "settingStoreCookies": true,
+            "settingSendCookies": true,
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingRebuildPath": true,
+            "settingFollowRedirects": "global",
+            "_type": "request"
+        },
+        {
+            "_id": "wrk_ea5c4ef8176748d9a9168caa000e4da1",
+            "parentId": null,
+            "modified": 1619893205575,
+            "created": 1619893205575,
+            "name": "VVP",
+            "description": "",
+            "scope": "collection",
+            "_type": "workspace"
+        },
+        {
+            "_id": "req_4b93837e2dbe411cbd20c948646d6840",
+            "parentId": "wrk_ea5c4ef8176748d9a9168caa000e4da1",
+            "modified": 1620325508470,
+            "created": 1620323528098,
+            "url": "localhost:3001/api/users/logout",
+            "name": "Logout User",
+            "description": "Success is a status code of 204.\n\n* 204 you were successfully logged out\n* 404 is probably because you were already logged out",
+            "method": "POST",
+            "body": {
+                "mimeType": "application/json",
+                "text": "{\n\"email\": \"Sal@gmail.com\"\n}"
+            },
+            "parameters": [],
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json",
+                    "id": "pair_8ce45a396be246a6b462de5aa769ed8b"
+                }
+            ],
+            "authentication": {},
+            "metaSortKey": -1620323528098,
+            "isPrivate": false,
+            "settingStoreCookies": true,
+            "settingSendCookies": true,
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingRebuildPath": true,
+            "settingFollowRedirects": "global",
+            "_type": "request"
+        },
+        {
+            "_id": "req_414bb1ceeeec4f218da5604d8518b10d",
+            "parentId": "wrk_ea5c4ef8176748d9a9168caa000e4da1",
+            "modified": 1620324716616,
+            "created": 1619893212269,
+            "url": "localhost:3001/api/email",
+            "name": "send email",
+            "description": "This is here just to make sure that your local .env file is setup properly.\n\nYou need to make sure that you have the following defined in your .env file:\n\n`SENDGIRD_API_KEY=***INSERT KEY HERE***  (see slack for the key)\nSENDING_EMAIL_ADDRESS=viktoriia@viktoriiasvaxxpassport.com`\n\nIf when you run this call you get \n\n`{\n  \"message\": \"success\"\n}`\n\nthen you know it successfully handed the email off.\n\nIf you get \n\n`{}`\n\nthen that's bad - probably your API key is not correct.",
+            "method": "POST",
+            "body": {
+                "mimeType": "application/json",
+                "text": "{\n\"emailTo\": \"jason.e.jones+DEPRECATED@gmail.com\",\n\"emailSubject\": \"DEPRECATED test\",\n\"emailBody\": \"Welcome to the VVP people united have fun.\"\n}"
+            },
+            "parameters": [],
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json",
+                    "id": "pair_e5b7b1fdcb6644f4976a389eddf899b0"
+                }
+            ],
+            "authentication": {},
+            "metaSortKey": -1620091708660,
+            "isPrivate": false,
+            "settingStoreCookies": true,
+            "settingSendCookies": true,
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingRebuildPath": true,
+            "settingFollowRedirects": "global",
+            "_type": "request"
+        },
+        {
+            "_id": "req_56b830ae47bf4afba9e442f79ffd736f",
+            "parentId": "wrk_ea5c4ef8176748d9a9168caa000e4da1",
+            "modified": 1620324792520,
+            "created": 1620091708578,
+            "url": "localhost:3001/api/users",
+            "name": "Create User",
+            "description": "When you create a user, you will get the body back but the password will be hashed.\n\n{  \n\t\"first_name\": \"firstnametest\",  \n\t\"last_name\": \"lastnametest\",  \n\t\"zipcode\": 29730,  \n\t\"email\": \"jason.e.jones+api@gmail.com\",  \n\t\"password\": \"password\"  \n}   \n\nreturns\n\n{  \n  \"vvp_number\": 100031,  \n  \"first_name\": \"firstnametest\",  \n  \"last_name\": \"lastnametest\",  \n  \"zipcode\": 29730,  \n  \"email\": \"jason.e.jones+api@gmail.com\",  \n  \"password\": \"$2b$10$c4mUgG49bvF/Y8xSvbwg9usYaYtosPMOClw71HcxTWVXhgZuANQIu\"  \n}  ",
+            "method": "POST",
+            "body": {
+                "mimeType": "application/json",
+                "text": "{\n\t\"first_name\": \"firstnametest\",\n\t\"last_name\": \"lastnametest\",\n\t\"zipcode\": 29730,\n\t\"email\": \"jason.e.jones+api@gmail.com\",\n\t\"password\": \"password\"\n}"
+            },
+            "parameters": [],
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json",
+                    "id": "pair_aff6486e131747479f6b50c4f6f08ad7"
+                }
+            ],
+            "authentication": {},
+            "metaSortKey": -1620091708610,
+            "isPrivate": false,
+            "settingStoreCookies": true,
+            "settingSendCookies": true,
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingRebuildPath": true,
+            "settingFollowRedirects": "global",
+            "_type": "request"
+        },
+        {
+            "_id": "req_d2627854bdad49688f8ef480b6e45fda",
+            "parentId": "wrk_ea5c4ef8176748d9a9168caa000e4da1",
+            "modified": 1620322930126,
+            "created": 1620321553983,
+            "url": "localhost:3001/api/vaxxs",
+            "name": "add vaxx to user",
+            "description": "",
+            "method": "POST",
+            "body": {
+                "mimeType": "application/json",
+                "text": "{\n\"vaxx_name\": \"Varicella (Chickenpox)\",\n\"description\": \"Varivax 2\",\n\"date_created\": \"2021-05-06\",\n\"user_id\": 100002\n}"
+            },
+            "parameters": [],
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json",
+                    "id": "pair_e5b7b1fdcb6644f4976a389eddf899b0"
+                }
+            ],
+            "authentication": {},
+            "metaSortKey": -1619653761240,
+            "isPrivate": false,
+            "settingStoreCookies": true,
+            "settingSendCookies": true,
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingRebuildPath": true,
+            "settingFollowRedirects": "global",
+            "_type": "request"
+        },
+        {
+            "_id": "req_b3ace781b02649da99d60ac385d64244",
+            "parentId": "wrk_ea5c4ef8176748d9a9168caa000e4da1",
+            "modified": 1620325611319,
+            "created": 1620322285844,
+            "url": "localhost:3001/api/vaxxs/200006",
+            "name": "update vaxx given a user",
+            "description": "By design, this API will not let someone change the user that has been given the vax.  This route is intended to be used by a logged in user to edit somethign they might have put incorrectly.\n\n`[ 0 ]` means that 0 rows were updated.  If there were no edits but the PUT was issued, this is what will happen.\n\n`[ 1 ]` means that 1 row in the vaxx table was updated.  If there was 1 or more field changes, this is the expected results.",
+            "method": "PUT",
+            "body": {
+                "mimeType": "application/json",
+                "text": "{\n\"vaxx_name\": \"Varicella (Chickenpox)\",\n\"description\": \"Varivax 2sssss\",\n\"date_created\": \"2021-05-16\"\n}"
+            },
+            "parameters": [],
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json",
+                    "id": "pair_e5b7b1fdcb6644f4976a389eddf899b0"
+                }
+            ],
+            "authentication": {},
+            "metaSortKey": -1619534035725.5,
+            "isPrivate": false,
+            "settingStoreCookies": true,
+            "settingSendCookies": true,
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingRebuildPath": true,
+            "settingFollowRedirects": "global",
+            "_type": "request"
+        },
+        {
+            "_id": "env_9b3c2b0ea434c0b72a4854fde649b0c7ab7636c0",
+            "parentId": "wrk_ea5c4ef8176748d9a9168caa000e4da1",
+            "modified": 1619893205818,
+            "created": 1619893205818,
+            "name": "Base Environment",
+            "data": {},
+            "dataPropertyOrder": null,
+            "color": null,
+            "isPrivate": false,
+            "metaSortKey": 1619893205818,
+            "_type": "environment"
+        },
+        {
+            "_id": "jar_9b3c2b0ea434c0b72a4854fde649b0c7ab7636c0",
+            "parentId": "wrk_ea5c4ef8176748d9a9168caa000e4da1",
+            "modified": 1620325039618,
+            "created": 1619893205830,
+            "name": "Default Jar",
+            "cookies": [
+                {
+                    "key": "connect.sid",
+                    "value": "s%3A7KeKFrd9zlKtiBZziZaZKmlvgXf5aDJa.HZl1YCyzK%2FKpK6mLj90CJW5q3jkZBbOmAxMd0%2Fc33so",
+                    "domain": "www.viktoriiasvaxxpassport.com",
+                    "path": "/",
+                    "httpOnly": true,
+                    "hostOnly": true,
+                    "creation": "2021-05-01T18:20:41.311Z",
+                    "lastAccessed": "2021-05-01T18:20:41.311Z",
+                    "id": "48809588087475997"
+                },
+                {
+                    "key": "connect.sid",
+                    "value": "s%3A3GRNrn-oSHxDXGThQJAHAK9fZDpkLJSe.myBfvLDrFulK2dd0lhkAIkWQB1h%2FUm90Z1BTXQzGxKY",
+                    "domain": "localhost",
+                    "path": "/",
+                    "httpOnly": true,
+                    "hostOnly": true,
+                    "creation": "2021-05-01T19:15:18.284Z",
+                    "lastAccessed": "2021-05-06T18:17:19.617Z",
+                    "id": "5189304426039869"
+                },
+                {
+                    "key": "connect.sid",
+                    "value": "s%3AnexU9Yo5JUXXHtr8l9xpHQ8bjWUZwZZt.8KpFYKSUGndvOc2n84umZG3omtjBh1BPmwojxX5oyc0",
+                    "domain": "techblog-hw14.herokuapp.com",
+                    "path": "/",
+                    "httpOnly": true,
+                    "hostOnly": true,
+                    "creation": "2021-05-02T03:38:38.757Z",
+                    "lastAccessed": "2021-05-02T03:38:38.757Z",
+                    "id": "3359597540301382"
+                }
+            ],
+            "_type": "cookie_jar"
+        },
+        {
+            "_id": "spc_968397aecd634c9fa7df0f4fdfa70e7c",
+            "parentId": "wrk_ea5c4ef8176748d9a9168caa000e4da1",
+            "modified": 1619893205581,
+            "created": 1619893205581,
+            "fileName": "VVP",
+            "contents": "",
+            "contentType": "yaml",
+            "_type": "api_spec"
+        }
+    ]
+}
