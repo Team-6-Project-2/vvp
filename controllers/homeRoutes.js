@@ -90,6 +90,16 @@ router.get('/login', (req, res) => {
   res.render('login');
 });
 
+router.get('/about', (req, res) => {
+  
+  // if (req.session) {
+  //   res.redirect('/about');
+  //   return;
+  // }
+
+  res.render('about');
+});
+
 // during testing the api if the user was not logged in and attempted a PUT to
 // update vaxx given a user, that would be redirected AS A PUT to /login.  So we
 // are capturing that here to render the login page.  I mean, the should never
