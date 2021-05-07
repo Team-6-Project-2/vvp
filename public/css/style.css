@@ -68,3 +68,7 @@ h5.background {
 .giphy-embed {
   border: solid rgb(68, 89, 184) 15px;
 }
+
+.no-bullets {
+  list-style: none;
+}
