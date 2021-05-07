@@ -75,8 +75,8 @@ h5.background {
 
 #about-text {
   font-size: larger;
-  
 }
+
 #about-pic {
-  background-image: url(./assets/covid.jpeg);
+  background-image: url(assets/covid.jpeg);
 }
