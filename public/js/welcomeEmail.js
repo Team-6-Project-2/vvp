@@ -7,7 +7,6 @@ const welcomeEmailHandler = async (emailTo, emailBody) => {
 
   if (emailTo && emailBody) {
     // Send email
-    console.log('calling the email to send *****************');
 
     const response = await fetch(`/api/email`, {
       method: 'POST',
