@@ -1,33 +1,57 @@
-# vvp
+# Viktoriias Vax Password Group Project #2 Team 6
 
-Viktoriias Vax Password Group Project #2 Team 6
+## Project Overview
 
-1. purchase custom domain name
-2. setup office365 email with 1 vanity username (viktoriia)
-3. upgrade heroku instance to hobby instance so we can run certs against an app that's deployed to a custom domain name
-   https://app.sendgrid.com/settings/api_keys
-   heroku run bash --app=techblog-hw14
+This app allows you to track your vaccine record, and share it anonymous with anyone (or any agency) that requires proof of vaccination. (Except for the part about how this is just an academic exercise)
 
-4. https://devcenter.heroku.com/articles/automated-certificate-management#view-your-certificate-status
-   3.viktoriiavcaxxpassport.com domain
-5. setup domain with heroku
-   heroku apps --team=codeteam6
+# View Demo
 
-$ heroku certs:auto --app=viktoriiasvaxxpassport
+To view demo click on this link: ([Heroku Demo Link](https://viktoriiasvaxxpassport.com//))
 
-heroku run --app viktoriiasvaxxpassport bash
-how to setup domain name with godaddy domain
-https://successengineer.medium.com/how-to-setup-heroku-with-godaddy-d8e936d10849
+# Getting Started Locally
 
-https://levelup.gitconnected.com/how-to-connect-a-godaddy-domain-to-a-deployed-heroku-react-app-9b8809d858c0
+To get the Node server running locally:
 
-how to send email: https://docs.cloudmailin.com/outbound/examples/send_email_with_node_js/
-how to send emails with express: https://docs.cloudmailin.com/outbound/examples/send_email_with_node_js/#sending-mail-with-express
+- Clone this repo ([GIT](https://github.com/Team-6-Project-2/vvp))
+- Install Nodejs on your Mac ([Download](https://www.dyclassroom.com/howto-mac/how-to-install-nodejs-and-npm-on-mac-using-homebrew))
+- `npm install` to install all required dependencies
+- load the .sql file locally and make sure the credentials match up.
+- `node server.js` to start the node application.
 
-npm install cloudmailin
-npm install express-mailer
+# Code Overview
 
----
+## Dependencies
+
+- [express](https://www.npmjs.com/package/express) - Fast, unopinionated, minimalist web framework (for servers) for node.
+- [handlebars](https://www.npmjs.com/package/handlebars) - andlebars provides the power necessary to let you build semantic templates effectively with no frustration
+- [mysql2](https://www.npmjs.com/package/mysql2) - MySQL client for Node.js with focus on performance. Supports prepared statements, non-utf8 encodings, binary log protocol, compression, ssl much more
+- [sequelize](https://www.npmjs.com/package/sequelize) - Sequelize is a promise-based Node.js ORM tool for Postgres, MySQL, MariaDB, SQLite and Microsoft SQL Server
+- [express-session](https://www.npmjs.com/package/express-session) - session middleware for express
+- [dotenv](https://www.npmjs.com/package/dotenv) - Loads environment variables from .env file
+- [date-fns](https://www.npmjs.com/package/date-fns) - provides the most comprehensive, yet simple and consistent toolset for manipulating JavaScript dates in a browser & Node.js
+- [bcrypt](https://www.npmjs.com/package/bcrypt) - A library to help you hash passwords
+- [nodemailer](https://www.npmjs.com/package/nodemailer) - Send e-mails from Node.js
+
+## Dev Dependencies
+
+- [nodmon](https://www.npmjs.com/package/nodemon) - nodemon will watch the files in the directory in which nodemon was started, and if any files change, nodemon will automatically restart your node application.
+
+## Application MVC Structure
+
+- `server.js` - The entry point to our application for the customer user type.
+- `/views` - Applications template files using handlebars.
+- `/public` - All public facing assets are in this directory.
+- `/models` - The application models for use with ORM.
+- `/db` - Starter database files.
+- `/controllers` - Most of the application's logic for requests and responses are done in this directory as well as routes
+- `/config` - Database configuration.
+
+## Tasks performed / practiced in this acedemic exercise
+
+- purchase custom domain name
+- setup office365 email with 1 vanity username (viktoriia)
+- upgrade heroku instance to hobby instance so we can run certs against an app that's deployed to a custom domain name
+- Enabled automated certification management [link](https://devcenter.heroku.com/articles/automated-certificate-management#view-your-certificate-status)
 
 # Things Learned
 
@@ -51,3 +75,8 @@ https://github.com/sendgrid/docs/issues/6530
 | POST   | /api/vaxxs       | Adds a vaxx to a user - expects JSON object formatted: <br>`{`<br>`"vaxx_name": "`<em>`VAXX NAME`</em>`",`<br>`"description": "`<em>`DESCRIPTION`</em>`",`<br>`"date_created": "`<em>`DATE`</em>`",`<br>`"user_id": "`<em>`user_id`</em>`"`<br>`}`                            |
 | PUT    | /api/vaxxs/:id   | Updated a vaxx given a vaxx id - expects JSON object formatted: <br>`{`<br>`"vaxx_name": "`<em>`VAXX NAME`</em>`",`<br>`"description": "`<em>`DESCRIPTION`</em>`",`<br>`"date_created": "`<em>`DATE`</em>`"`<br>`}`                                                           |
 
+### Team Members
+
+- Viktoriia Midor
+- Stefan Podzinski
+- Jason Jones
