@@ -24,6 +24,7 @@ body {
   color: #222;
   font-family: 'Special Elite';
 }
+
 .navbar {
   padding: 0.8rem;
 }
@@ -76,3 +77,14 @@ h5.background {
 #about-text {
   font-size: larger;
 }
+.color {
+  color: inherit !important;
+}
+/* ul.nav li a:hover,
+ul.nav li a:active {
+  color: inherit;
+}
+
+ul.nav li.active a {
+  color: inherit;
+} */
