@@ -8,12 +8,12 @@
                 {{#if vaxxes}}
                 <div class="card-body">
                     <p class="card-text">
-                    <table class="table">
+                    <table class="table table-striped">
                         <thead>
                             <tr>
-                                <th>
+                                {{!-- <th>
                                     Name
-                                </th>
+                                </th> --}}
                                 <th>
                                     Description
                                 </th>
@@ -25,9 +25,9 @@
                         <tbody>
                             {{#each vaxxes as |vaxx|}}
                             <tr>
-                                <td>
+                                {{!-- <td>
                                     {{vaxx.vaxx_name}}
-                                </td>
+                                </td> --}}
                                 <td>
                                     {{vaxx.description}}
                                 </td>
