@@ -35,16 +35,17 @@
             <a class="nav-link" href="about">About</a>
           </li>
           <li class="nav-item active">
-            <a class="nav-link" href="https://covid.cdc.gov/covid-data-tracker/#datatracker-home" target="_blank">Covid Tracker</a>
+            <a class="nav-link" href="https://covid.cdc.gov/covid-data-tracker/#datatracker-home" target="_blank">Covid
+              Tracker</a>
           </li>
           <li>
-            <li class="nav-item active"><a class="nav-link" href="/profile">Profile</a></li>
-            <!-- Conditionally render login or logout links -->
-            {{#if logged_in}}
-            <button class="btn btn-primary" id="logout">Logout</button>
-            {{else}}
-            <a class="nav-link" href="/login">Login</a>
-            {{/if}}
+          <li class="nav-item active"><a class="nav-link" href="/profile">Profile</a></li>
+          <!-- Conditionally render login or logout links -->
+          {{#if logged_in}}
+          <button class="btn btn-primary" id="logout">Logout</button>
+          {{else}}
+          <a class="nav-link" href="/login">Login</a>
+          {{/if}}
           </li>
         </ul>
       </div>

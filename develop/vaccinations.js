@@ -30,4 +30,5 @@ const valid_vaccinations = [
   'Measles, Mumps, Rubella, Varicella',
   'COVID-19',
 ];
-console.table(valid_vaccinations);
+
+module.exports = valid_vaccinations;

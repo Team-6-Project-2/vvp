@@ -24,6 +24,7 @@ body {
   color: #222;
   font-family: 'Special Elite';
 }
+
 .navbar {
   padding: 0.8rem;
 }
@@ -69,20 +70,21 @@ h5.background {
   border: solid rgb(68, 89, 184) 15px;
 }
 
-
 .no-bullets {
-
   list-style: none;
 }
 
 #about-text {
   font-size: larger;
+}
+.color {
+  color: inherit !important;
+}
+/* ul.nav li a:hover,
+ul.nav li a:active {
+  color: inherit;
+}
 
-
-} 
-/* #about-pic {
-  background-image: url('https://www.mcmasteroptimalaging.org/images/default-source/blog-post-images/covid-19-vaccine-bottle-and-syringe-on-a-blue-background-1290654542_1258x839.tmb-blogpost.jpeg?sfvrsn=f5960fd6_2');
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+ul.nav li.active a {
+  color: inherit;
 } */

@@ -3,6 +3,7 @@ const { Vaxx, User } = require('../models');
 const withAuth = require('../utils/auth');
 const { format, parseISO } = require('date-fns');
 const makeItAnon = require('../utils/makeItAnon');
+const valid_vaccinations = require("../develop/vaccinations");
 router.get('/', async (req, res) => {
   try {
     // Get all Vaxxs and JOIN with user data
@@ -17,11 +18,9 @@ router.get('/', async (req, res) => {
 
     // Serialize data so the template can read it
     const vaxxs = vaxxData.map((vaxx) => vaxx.get({ plain: true }));
-
     // Pass serialized data and session flag into template
     res.render('homepage', {
       vaxxs,
-
       logged_in: req.session.logged_in,
     });
   } catch (err) {
@@ -73,6 +72,7 @@ router.get('/profile', withAuth, async (req, res) => {
 
     res.render('profile', {
       ...user,
+      valid_vaccinations,
       logged_in: true,
     });
   } catch (err) {
@@ -123,7 +123,7 @@ router.get('/login', (req, res) => {
 });
 
 router.get('/about', (req, res) => {
-  
+
   // if (req.session) {
   //   res.redirect('/about');
   //   return;
