@@ -5,6 +5,7 @@
                 <h5 class="card-header">
                     Viktoriia's Vaxx Passport Report for {{first_name}} {{last_name}} ({{vvp_number}})
                 </h5>
+                {{#if vaxxes}}
                 <div class="card-body">
                     <p class="card-text">
                     <table class="table">
@@ -31,7 +32,7 @@
                                     {{vaxx.description}}
                                 </td>
                                 <td>
-                                    {{vaxx.date_created}}
+                                    {{format_date vaxx.date_created}}
                                 </td>
                             </tr>
                             {{/each}}
@@ -39,11 +40,21 @@
                         </tbody>
                     </table>
                 </div>
+                {{else}}
+
+                <div class="alert alert-danger" role="alert">
+                    <h2>
+                        <p class="text-center">No Vaccines on file.</p>
+                    </h2>
+                </div>
+                {{/if}}
             </div>
         </div>
         </p>
     </div>
     <div class="card-footer">
-        For more information about the Viktoriias Vaxx Passport head over to www.viktoriiasvaxxpassport.com
+        For more information about the Viktoriias Vaxx Passport head over to <a
+            href="https://viktoriiasvaxxpassport.com">viktoriiasvaxxpassport.com</a>
     </div>
+
 </div>
