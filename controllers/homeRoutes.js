@@ -3,8 +3,13 @@ const { Vaxx, User } = require('../models');
 const withAuth = require('../utils/auth');
 const { format, parseISO } = require('date-fns');
 const makeItAnon = require('../utils/makeItAnon');
-const valid_vaccinations = require("../develop/vaccinations");
+const valid_vaccinations = require('../develop/vaccinations');
+
 router.get('/', async (req, res) => {
+  if (req.session.logged_in) {
+    res.redirect('/profile');
+    return;
+  }
   try {
     // Get all Vaxxs and JOIN with user data
     const vaxxData = await Vaxx.findAll({
@@ -123,7 +128,6 @@ router.get('/login', (req, res) => {
 });
 
 router.get('/about', (req, res) => {
-
   // if (req.session) {
   //   res.redirect('/about');
   //   return;

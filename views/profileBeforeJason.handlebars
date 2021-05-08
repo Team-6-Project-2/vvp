@@ -5,21 +5,15 @@
     <form>
       <div class="form-row">
         <div class="col-md-2 mb-3">
-          <label for="validationDefault02">VVP number</label>
-          <input type="text" class="form-control" id="validationDefault02" placeholder="vvp" value={{vvp_number}}
-            readonly>
-        </div>
-
-        <div class="col-md-2 mb-3">
           <label for="validationDefault01">First name </label>
           <input type="text" class="form-control" id="validationDefault01" placeholder="First name" value={{first_name}}
-            readonly>
+            required>
         </div>
 
         <div class="col-md-2 mb-3">
           <label for="validationDefault02">Last name</label>
           <input type="text" class="form-control" id="validationDefault02" placeholder="Last name" value={{last_name}}
-            readonly>
+            required>
         </div>
 
         <div class="col-md-3 mb-3">
@@ -29,24 +23,29 @@
               <span class="input-group-text" id="inputGroupPrepend2">@</span>
             </div>
             <input type="text" class="form-control" id="validationDefaultUsername" placeholder="Enter your email"
-              value={{email}} aria-describedby="inputGroupPrepend2" readonly>
+              value={{email}} aria-describedby="inputGroupPrepend2" required>
           </div>
         </div>
         <div class="col-md-2 mb-3">
           <label for="validationDefault02">Zip</label>
-          <input type="text" class="form-control" id="validationDefault02" placeholder="zip" value={{zipcode}} readonly>
+          <input type="text" class="form-control" id="validationDefault02" placeholder="zip" value={{zipcode}} required>
         </div>
+        <div class="col-md-2 mb-3">
+          <label for="validationDefault02">VVP number</label>
+          <input type="text" class="form-control" id="validationDefault02" placeholder="vvp" value={{vvp_number}}
+            readonly>
+        </div>
+
       </div>
     </form>
-
     <form class="needs-validation" id="add_vaxx_form" novalidate>
       <div class="form-row">
-        {{!-- <div class="col-md-4 mb-3">
+        <div class="col-md-4 mb-3">
           <label for="validationCustom01">Name</label>
           <input type="text" class="form-control" id="validationCustom01" placeholder="please enter" value="" required>
-        </div> --}}
+        </div>
         <div class="col-md-4 mb-3">
-          {{!-- <label for="validationCustom02">Type of Vaccine</label> --}}
+          <label for="validationCustom02">Type of Vaccine</label>
           <select class="custom-select" id="inputGroupSelect02" placeholder="vaxx" value="{{valid_vaccinations}}"
             required>
             {{#each valid_vaccinations}}
@@ -55,7 +54,7 @@
           </select>
         </div>
         <div class="col-md-4 mb-3">
-          {{!-- <label for="add-vax-date">Date</label> --}}
+          <label for="add-vax-date">Date</label>
           <input class="form-control" type="date" id="add-vax-date">
         </div>
         <div class="form-group">
@@ -63,57 +62,32 @@
         </div>
       </div>
     </form>
-
-    <hr style="border-top: 1px solid #ccc; background: transparent;">
-
-    {{#if vaxxes}}
-    <div class="card-body">
-      <p class="card-text">
-      <table class="table table-dark table-striped">
-        <thead>
-          <tr>
-            {{!-- <th>
-              Name
-            </th> --}}
-            <th>
-              Description
-            </th>
-            <th>
-              Date
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          {{#each vaxxes as |vaxx|}}
-          <tr>
-            {{!-- <td>
-              {{vaxx.vaxx_name}}
-            </td> --}}
-            <td>
-              {{vaxx.description}}
-            </td>
-            <td>
-              {{!-- {{format_date vaxx.date_created}} --}}
-              {{vaxx.date_created}}
-
-            </td>
-          </tr>
-          {{/each}}
-
-        </tbody>
-      </table>
-    </div>
-    {{else}}
-
-    <div class="alert alert-danger" role="alert">
-      <h2>
-        <p class="text-center">No Vaccines on file.</p>
-      </h2>
-    </div>
-    {{/if}}
-
+    {{#each vaxxes}}
+    <form class="needs-validation" novalidate>
+      <div class="form-row">
+        <div class="col-md-4 mb-3">
+          <label for="validationCustom01">Name</label>
+          <input type="text" class="form-control" id="validationCustom01" placeholder="please enter"
+            value="{{description}}" required>
+        </div>
+        <div class="col-md-4 mb-3">
+          <label for="validationCustom02">Type of Vaccine</label>
+          <select class="custom-select" id="inputGroupSelect02" placeholder="vaxx" value="{{vaxx_name}}" required>
+            {{#each ../valid_vaccinations}}
+            <option value="{{this}}">{{this}}</option>
+            {{/each}}
+          </select>
+        </div>
+        <div class="col-md-4 mb-3">
+          <label for="add-vax-date">Date</label>
+          <input class="form-control" type="date" value="{{date_created}}" id="add-vax-date">
+        </div>
+        <div class="form-group">
+          <button class="btn btn-primary" type="edit">Edit</button>
+        </div>
+      </div>
+    </form>
+    {{/each}}
   </div>
-</div>
-
-<script src="/js/profile.js"></script>
-<link rel="stylesheet" href="/css/styleprofile.css">
+  <script src="/js/profile.js"></script>
+  <link rel="stylesheet" href="/css/styleprofile.css">
