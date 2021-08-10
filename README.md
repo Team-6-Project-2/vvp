@@ -6,7 +6,7 @@ This app allows you to track your vaccine record, and share it anonymous with an
 
 # View Demo
 
-To view demo click on this link: ([Heroku Demo Link](https://viktoriiasvaxxpassport.com/))
+To view demo click on this link: ([Heroku Demo Link](https://viktoriiasvaxxpassport.herokuapp.com/))
 
 # Getting Started Locally
 
